@@ -4,6 +4,7 @@ import ProfilePic from '../img/profilepic.jpeg'
 const AboutSection = () => {
     return(
 
+        
         <div>
             <div className="description">
                 <div className="title">
@@ -21,7 +22,7 @@ const AboutSection = () => {
                 <button>Contact Me </button>
             </div>
 
-            <div className="img">
+            <div className="profile-img">
                 <img src= {ProfilePic} alt="A random software developer"/>
             </div>
         </div>
