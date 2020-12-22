@@ -3,30 +3,50 @@ import ProfilePic from '../img/profilepic.jpeg';
 import styled from 'styled-components';
 
 import {About , Description , Image , Hide} from '../styles'
+
+import Wave from './Wave'; 
+// Framer Motion 
+import {motion} from 'framer-motion';
+import {fade , ImageAnim} from '../animation';
+
 const AboutSection = () => {
+
+
+    // const container = {
+    //     hidden : {x : 100} , 
+    //     show : {x : 0 , transition : {duration : 1 , ease : "easeOut" , staggerChildren : 1 , }} 
+    // }
+
+    const titleAnim = {
+   
+        hidden : {y:200 },
+        show : {y:0 , transition : {duration : 0.75 , ease : 'easeOut' } } 
+   
+    }
     return(
 
         
         <About>
             <Description>
-                <div className="title">
+                <motion.div  className="title">
                     <Hide>
-                        <h2>Competitive Programmer</h2>
+                        <motion.h2 variants = {titleAnim} >Competitive Programmer</motion.h2>
                     </Hide>
                     <Hide>
-                        <h2> <span> turned </span></h2>
+                        <motion.h2 variants = {titleAnim}> <span> turned </span></motion.h2>
                     </Hide>
                     <Hide>
-                        <h2>Software Developer</h2>
+                        <motion.h2 variants = {titleAnim}>Software Developer</motion.h2>
                     </Hide>
-                </div>
-                <p>Contact me for any software project ideas that you have.</p>
-                <button>Contact Me </button>
+                </motion.div>
+                <motion.p variants = {fade} > Contact me for any software project ideas that you have.</motion.p>
+                <motion.button variants = {fade}>Contact Me </motion.button>
             </Description>
 
             <Image>
-                <img src= {ProfilePic} alt="A random software developer"/>
+                <motion.img variants = {ImageAnim} src= {ProfilePic} alt="A random software developer"/>
             </Image>
+            <Wave/>
         </About>
     )
 

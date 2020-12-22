@@ -10,15 +10,20 @@ import GlobalStyle from './components/GlobalStyles'
 import Nav from './components/Nav';
 
 //Router 
-import {Switch , Route} from 'react-router-dom'
+import {Switch , Route , useLocation} from 'react-router-dom'
 
+//Animation 
+import {AnimatePresence} from 'framer-motion' ; 
 
 function App() {
+
+  const location = useLocation();
   return (
     <div className="App">
         <GlobalStyle/>
         <Nav />
-        <Switch>
+        <AnimatePresence exitBeforeEnter>
+        <Switch Location = {location} key = {location.pathname}>
           <Route path = "/" exact>
             <AboutUs />
           </Route>
@@ -27,12 +32,13 @@ function App() {
             <Skills/>
           </Route>
           <Route path = "/contact">
-            <ContactMe/>
+            <ContactMe/> 
           </Route>
           <Route path = "/skills/:id" > 
             <ProjectDetail />
           </Route>
         </Switch>
+        </AnimatePresence>
     </div>
   );
 }

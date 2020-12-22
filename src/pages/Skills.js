@@ -7,11 +7,14 @@ import goodtimes from '../img/goodtimes-small.png';
 
 import {Link} from 'react-router-dom'
 
+import {motion} from 'framer-motion'; 
+import {pageAnimation} from '../animation';
+
 const Skills = () => {
 
     return (
         
-        <SkillProject>
+        <SkillProject variants ={pageAnimation} exit = "exit" initial = "hidden" animate = "show">
             <Project>
                 <h2>The Athlete</h2>
                 <div className="line"></div>
@@ -38,7 +41,7 @@ const Skills = () => {
 }
 
 
-const SkillProject = styled.div`
+const SkillProject = styled(motion.div)`
     min-height : 100vh;
     overflow : hidden ; 
     padding : 5rem 10rem ; 

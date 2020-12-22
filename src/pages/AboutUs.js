@@ -3,13 +3,16 @@ import AboutSection from '../components/AboutSection'
 import ServicesSection from '../components/ServicesSection'
 import WorkExpSection from '../components/WorkExpSection'
 
+import {motion} from 'framer-motion'; 
+import {pageAnimation} from '../animation';
+
 const AboutUs = () => {
     return (
-        <div>
+        <motion.div variants = {pageAnimation} exit = "exit" initial = "hidden" animate = "show">
            < AboutSection />
            < ServicesSection />
            < WorkExpSection />
-        </div>
+        </motion.div>
     )
 }
 
